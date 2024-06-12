@@ -7,7 +7,7 @@
     <title>Document</title>
     <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
 	<title>UI Project</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sellertemplates/style.css' %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
    
@@ -27,7 +27,7 @@
             <input type="text" placeholder="username" name="username"/>
             <input type="password" placeholder="Password" name="password"/>
             
-            <a href="{% url 'createuser' %}"><button>Sign up</button></a>
+            <a href="{% url 'sellersignup' %}"><button>Sign up</button></a>
             
         </form>
     </div>
@@ -41,11 +41,11 @@
             <div class="overlay-panel overlay-right">
                 <h1>Hello, there</h1>
                 <p>To join us please enter your personal details</p>
-                <a href="{% url 'userlogin' %}"><button>Sign in</button></a>
+                <a href="{% url 'sellerlogin' %}"><button>Sign in</button></a>
             </div>
         </div>
     </div>
 </div>
-<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/sellertemplates/script.js' %}"></script>
 </body>
 </html>
