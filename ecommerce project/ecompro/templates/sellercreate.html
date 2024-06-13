@@ -18,15 +18,10 @@
         <form action="#" method="post">
             {% csrf_token %}
             <h1>create account</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your account</span>
+            <input type="email" name="mail" placeholder="email">
             <input type="text" placeholder="username" name="username"/>
             <input type="password" placeholder="Password" name="password"/>
-            
+            <input type="password" placeholder="confirm password" name="confirmpassword">
             <a href="{% url 'sellersignup' %}"><button>Sign up</button></a>
             
         </form>

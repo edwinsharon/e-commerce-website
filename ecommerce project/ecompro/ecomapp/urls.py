@@ -6,5 +6,7 @@ urlpatterns = [
     path('sellerlogin/',views.sellersignup,name="sellersignup"),
     path('seller/',views.sellerlogin,name="sellerlogin"),
     path('sellerindex/',views.sellerindex,name="sellerindex"),
-    path('logout/',views.logout,name="logout")
+    path('logout/',views.logoutseller,name="logout"),
+    path('additem/',views.additem,name="additem"),
+
 ]

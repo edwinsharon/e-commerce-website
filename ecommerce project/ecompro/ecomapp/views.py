@@ -7,10 +7,13 @@ def index(request):
     return render(request,"index.html")
 def sellersignup(request):
     if request.POST:
+        email=request.POST.get('email')
         username=request.POST.get('username')
         password=request.POST.get('password')
-        User.objects.create_user(username=username,password=password)
-        return redirect('sellerlogin')
+        confirmpassword=request.POST.get('confirmpassword')
+        if confirmpassword == password:
+            User.objects.create_user(username=username,password=password,email=email)
+            return redirect('sellerlogin')
     return render(request,"sellercreate.html")
 
 def sellerlogin(request):
@@ -27,6 +30,8 @@ def sellerlogin(request):
     return render(request,"sellerlogin.html")    
 def sellerindex(request):
     return render(request,"sellerindex.html")    
-def logout(request):
+def logoutseller(request):
         logout(request)
         return redirect('sellerlogin')
+def additem(request):
+    return render (request,"addpro.html")
