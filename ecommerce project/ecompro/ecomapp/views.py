@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -11,10 +12,29 @@ def sellersignup(request):
         username=request.POST.get('username')
         password=request.POST.get('password')
         confirmpassword=request.POST.get('confirmpassword')
-        if confirmpassword == password:
-            User.objects.create_user(username=username,password=password,email=email)
-            return redirect('sellerlogin')
-    return render(request,"sellercreate.html")
+        
+        if not username or not email or not password:
+        
+            messages.error(request,'all fields are required.')
+            
+        elif confirmpassword != password:
+            messages.error(request,"password doesnot match")
+           
+        elif User.objects.filter(email=email).exists():
+            messages.error(request,"email already exist")
+           
+        elif User.objects.filter(username=username).exists():
+            messages.error(request,"username already exist")
+
+        else:
+           
+            user = User.objects.create_user(username=username, email=email, password=password)    
+            user.is_staff=True
+            user.save()
+            messages.success(request,"account created successfully")
+            return render(request, "sellercreate.html")
+    return render(request,"sellercreate.html")    
+           
 
 def sellerlogin(request):
     if 'username' in request.session:
@@ -35,3 +55,4 @@ def logoutseller(request):
         return redirect('sellerlogin')
 def additem(request):
     return render (request,"addpro.html")
+
