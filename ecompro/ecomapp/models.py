@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class product(models.Model):
-    productname=models.CharField(maxlength=100)
+    productname=models.CharField(max_length=100)
     prize=models.IntegerField()
     offer=models.CharField(max_length=50)
     speed=models.CharField(max_length=50)
