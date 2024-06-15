@@ -63,12 +63,11 @@ def additem(request):
         description=request.POST.get("description")
         category=request.POST.get("category")
         image=request.POST.get("image")
-        usename=User.objects.get("username")
         if not productname or not prize or not offer or not speed or not color or not description or not category or not image:
             messages.error(request,"all fields are required")
 
         else:
-            probj=product(productname=productname,prize=prize,offer=offer,speed=speed,color=color,description=description,category=category,image=image)
+            probj=product(id=None,productname=productname,prize=prize,offer=offer,speed=speed,color=color,description=description,category=category,seller=seller)
             probj.save()
             messages.success(request,"product added")    
             return redirect("additem")
