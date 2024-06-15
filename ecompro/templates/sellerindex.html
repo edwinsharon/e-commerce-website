@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +11,29 @@
           padding: 3rem 3rem; 
           font-size: 1.5rem;   
         }
+        .main{
+          background-image: url("{% static 'images/sellerindex/sellerindexbackground.jpg'  %}");
+          background-size: cover;
+        }
       </style>
       <link rel="stylesheet" href="{% static 'css/sellertemplates/style.css}">
 </head>
-<body class="bg-dark">
-    <a href="{% url 'logout' %}"><button class="btn btn-warning ms-3 mt-2">logout</button></a>
-    <div class="container main text-danger mt-5">
+<body class="bg-gray-dark main">
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'logout' %}"><button class="btn btn-danger me-2 mt-2">logout</button></a>
+    </div>
+    <div class="container  text-dark mt-5 bg-secondary opacity-75 w-75">
         <h1 align="center">MERCHANTS PORTAL</h1>
-        <div align="center">
-        <a href="{% url 'additem' %}"><button class="btn btn-super-lg btn-primary mt-5">ADD PRODUCT</button></a>
-        <a href=""><button class="btn btn-super-lg btn-success mt-5 ms-5">VIEW PREVIOUS PRODUCTS</button></a>
-        <a href=""><button class="btn btn-super-lg btn-danger mt-5 ms-5">REMOVE PRODUCTS</button></a>
+        <div align="center"  >
+        <div>
+        <a href="{% url 'additem' %}"><button class="btn btn-super-lg btn-dark mt-5 w-25 ms-5 opacity-100">ADD PRODUCT</button></a>
+      </div>
+      <div>
+        <a href=""><button class="btn btn-super-lg btn-dark mt-5 ms-5 w-25 opacity-100">VIEW PREVIOUS PRODUCTS</button></a>
+      </div>
+      <div>
+        <a href=""><button class="btn btn-super-lg btn-dark mt-5 ms-5 mb-3 opacity-100">REMOVE PRODUCTS</button></a>
+        </div>
         </div>
         
 

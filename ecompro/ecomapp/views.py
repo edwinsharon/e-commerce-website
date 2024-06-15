@@ -55,7 +55,6 @@ def logoutseller(request):
     return redirect('sellerlogin')
 def additem(request):
     if request.POST:
-        
         productname=request.POST.get("productname")
         prize=request.POST.get("prize")
         offer=request.POST.get("offer")
@@ -64,6 +63,7 @@ def additem(request):
         description=request.POST.get("description")
         category=request.POST.get("category")
         image=request.POST.get("image")
+        usename=User.objects.get("username")
         if not productname or not prize or not offer or not speed or not color or not description or not category or not image:
             messages.error(request,"all fields are required")
 
