@@ -60,9 +60,15 @@
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
+                     {% if user %}
                      <div class="menu_main">
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+                        <a href="#"><i class="fa fa-fw fa-user"></i>{{ user.username }}</a>
                      </div>
+                     {% elif %}
+                     <div class="menu_main">
+                        <a href="#"><i class="fa fa-fw fa-user"></i>LOGIN</a>
+                     </div>
+                     {% endif %}
                   </div>
                   <div class="middle_main">
                      <div class="shoping_bag"><img src="{% static 'images/shopping-bag.png' %}"></div>

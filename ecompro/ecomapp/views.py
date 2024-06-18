@@ -75,3 +75,44 @@ def additem(request):
 
     return render (request,"addpro.html")
 
+def usersignup(request):
+    if request.POST:
+        email=request.POST.get('email')
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        confirmpassword=request.POST.get('confirmpassword')
+        
+        if not username or not email or not password or not confirmpassword:
+            messages.error(request,'all fields are required.')
+
+        elif confirmpassword != password:
+            messages.error(request,"password doesnot match")
+           
+        elif User.objects.filter(email=email).exists():
+            messages.error(request,"email already exist")
+           
+        elif User.objects.filter(username=username).exists():
+            messages.error(request,"username already exist")
+
+        else:
+           
+            user = User.objects.create_user(username=username, email=email, password=password)    
+            user.is_staff=False
+            user.save()
+            messages.success(request,"account created successfully")
+            return render(request, "usercreate.html")
+    return render(request,"usercreate.html")    
+
+def userlogin(request):
+    if 'username' in request.session:
+        return redirect('index',{"user":user_obj})
+    if request.POST:
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        user=authenticate(username=username,password=password)
+        user_obj=User.objects.all()
+        if user is not None:
+            login(request,user)
+            request.session['username']=username
+            return redirect("index",{"user":user_obj})
+    return render(request,"userlogin.html")            
