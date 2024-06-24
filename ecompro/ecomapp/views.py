@@ -98,7 +98,6 @@ def usersignup(request):
         else:
            
             user = User.objects.create_user(username=username, email=email, password=password)    
-            user.is_staff=False
             user.save()
             messages.success(request,"account created successfully")
             return render(request, "usercreate.html")

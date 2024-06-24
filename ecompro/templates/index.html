@@ -60,13 +60,13 @@
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
-                     {% if user %}
+                     {% if user.is_authenticated %}
                      <div class="menu_main">
                         <a href="#"><i class="fa fa-fw fa-user"></i>{{ user.username }}</a>
                      </div>
-                     {% elif %}
+                     {% else %}
                      <div class="menu_main">
-                        <a href="#"><i class="fa fa-fw fa-user"></i>LOGIN</a>
+                        <a href="{% url 'userlogin' %}"><i class="fa fa-fw fa-user"></i>LOGIN</a>
                      </div>
                      {% endif %}
                   </div>
