@@ -63,6 +63,7 @@ def additem(request):
         description=request.POST.get("description")
         category=request.POST.get("category")
         image=request.POST.get("image")
+        seller=request.user()
         if not productname or not prize or not offer or not speed or not color or not description or not category or not image:
             messages.error(request,"all fields are required")
 
@@ -102,17 +103,18 @@ def usersignup(request):
             messages.success(request,"account created successfully")
             return render(request, "usercreate.html")
     return render(request,"usercreate.html")    
-
 def userlogin(request):
     if 'username' in request.session:
-        return redirect('index',{"user":user_obj})
-    if request.POST:
-        username=request.POST.get('username')
-        password=request.POST.get('password')
-        user=authenticate(username=username,password=password)
-        user_obj=User.objects.all()
+        return redirect('index', user=request.user.username)  
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        
         if user is not None:
-            login(request,user)
-            request.session['username']=username
-            return redirect("index",{"user":user_obj})
-    return render(request,"userlogin.html")            
+            login(request, user)
+            request.session['username'] = username
+            return redirect('index', user=user.username)  
+        
+    return render(request, 'userlogin.html')        
