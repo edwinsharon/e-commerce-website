@@ -117,3 +117,10 @@ def userlogin(request):
             return redirect('index', user=user.username)  
         
     return render(request, 'userlogin.html')        
+
+
+# def sellerproducts(request):
+#     if request.POST:
+#         sellerobj=User.objects.all()
+#         seller=request.user()
+#         if User.objects.filter(username=seller)
