@@ -119,8 +119,13 @@ def userlogin(request):
     return render(request, 'userlogin.html')        
 
 
-# def sellerproducts(request):
-#     if request.POST:
-#         sellerobj=User.objects.all()
-#         seller=request.user()
-#         if User.objects.filter(username=seller)
+def sellerproducts(request,username):
+    if request.POST:                                                                     
+         seller = User.objects.get(pk=username)
+         products = product.objects.filter(seller=seller)
+         context = {
+        'seller': seller,
+        'products': products,
+    }
+         return render(request, 'sellerproducts.html', context)
+
