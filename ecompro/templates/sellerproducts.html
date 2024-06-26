@@ -8,7 +8,19 @@
 
 </head>
 <body class="bg-secondary">
-<div class="container mt-4 bg-light">
+<div class="container mt-4 bg-light text-secondary">
+    <h1>products</h1>
+    {% for products in context %} 
+   
+    
+     
+   
+    <h1>{{ products.productname }}</h1>
+     <a href="{% url 'delete_g' todo.pk %}"> <button class="btn btn-danger my-50">delete</button></a> 
+     <a href="{% url 'edit_g' todo.pk %}"> <button class="btn btn-primary my-50">edit</button></a>
+    <h1>enter your choice</h1>  
+    
+     {% endfor %}
     
 
 
