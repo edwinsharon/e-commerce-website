@@ -120,19 +120,19 @@ def userlogin(request):
     return render(request, 'userlogin.html')        
 
 
-def sellerproducts(request,username):
-    if request.POST:                                                                     
-         seller = User.objects.get(pk=username)
+def sellerproducts(request):
+                                                                       
+         seller=request.user
          products = product.objects.filter(seller=seller)
          context = {
         'seller': seller,
         'products': products,
     }
          return render(request, 'sellerproducts.html', context)
+         
     
 
 def delete_g(request,pk):
     prodobj=product.objects.get(pk=pk)
     prodobj.delete()
-    return redirect("")
-
+    return redirect(request,"sellerproduct")
