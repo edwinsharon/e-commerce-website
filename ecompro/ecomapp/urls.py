@@ -9,6 +9,6 @@ urlpatterns = [
     path('logout/',views.logoutseller,name="logout"),
     path('additem/',views.additem,name="additem"),
     path('user/',views.userlogin,name="userlogin"),
-    path('sellerindex/',views.usersignup,name="usersignup"),
+    path('usersignup/',views.usersignup,name="usersignup"),
     path('sellerproducts/',views.sellerproducts,name="sellerproduct"),
 ]

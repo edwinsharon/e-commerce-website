@@ -6,6 +6,7 @@ from .models import *
 
 # Create your views here.
 def index(request):
+    print(request.user)
     return render(request,"index.html")
 def sellersignup(request):
     if request.POST:
@@ -114,7 +115,7 @@ def userlogin(request):
         if user is not None:
             login(request, user)
             request.session['username'] = username
-            return redirect('index', user=user.username)  
+            return redirect('index')  
         
     return render(request, 'userlogin.html')        
 
@@ -129,8 +130,8 @@ def sellerproducts(request,username):
     }
          return render(request, 'sellerproducts.html', context)
 
-def delete_g(request,pk):
-    todo_obj=todoitem.objects.get(pk=pk)
-    todo_obj.delete()
-    return redirect(index)
+# def delete_g(request,pk):
+#     todo_obj=todoitem.objects.get(pk=pk)
+#     todo_obj.delete()
+#     return redirect(index)
 
