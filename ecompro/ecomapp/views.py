@@ -129,9 +129,10 @@ def sellerproducts(request,username):
         'products': products,
     }
          return render(request, 'sellerproducts.html', context)
+    
 
-# def delete_g(request,pk):
-#     todo_obj=todoitem.objects.get(pk=pk)
-#     todo_obj.delete()
-#     return redirect(index)
+def delete_g(request,pk):
+    prodobj=product.objects.get(pk=pk)
+    prodobj.delete()
+    return redirect("")
 
