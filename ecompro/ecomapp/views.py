@@ -63,12 +63,12 @@ def additem(request):
         description=request.POST.get("description")
         category=request.POST.get("category")
         image=request.POST.get("image")
-        seller=request.user()
+        seller=request.user
         if not productname or not prize or not offer or not speed or not color or not description or not category or not image:
             messages.error(request,"all fields are required")
 
         else:
-            probj=product(id=None,productname=productname,prize=prize,offer=offer,speed=speed,color=color,description=description,category=category,seller=seller)
+            probj=product(productname=productname,prize=prize,offer=offer,speed=speed,color=color,description=description,category=category,seller=seller)
             probj.save()
             messages.success(request,"product added")    
             return redirect("additem")
@@ -128,4 +128,9 @@ def sellerproducts(request,username):
         'products': products,
     }
          return render(request, 'sellerproducts.html', context)
+
+def delete_g(request,pk):
+    todo_obj=todoitem.objects.get(pk=pk)
+    todo_obj.delete()
+    return redirect(index)
 

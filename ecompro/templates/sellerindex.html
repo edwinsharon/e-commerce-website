@@ -15,7 +15,7 @@
           background-image: url("{% static 'images/sellerindex/sellerindexbackground.jpg'  %}");
           background-size: cover;
         }
-      </style>
+    </style>
       <link rel="stylesheet" href="{% static 'css/sellertemplates/style.css}">
 </head>
 <body class="bg-gray-dark main">
@@ -29,12 +29,9 @@
         <a href="{% url 'additem' %}"><button class="btn btn-super-lg btn-dark mt-5 w-25 ms-5 opacity-100">ADD PRODUCT</button></a>
       </div>
       <div>
-        <a href=""><button class="btn btn-super-lg btn-dark mt-5 ms-5 w-25 opacity-100">VIEW PREVIOUS PRODUCTS</button></a>
+        <a href="{% url 'sellerproduct' %}"><button class="btn btn-super-lg btn-dark mt-5 ms-5 w-25 opacity-100">VIEW PREVIOUS PRODUCTS</button></a>
       </div>
-      <div>
-        <a href=""><button class="btn btn-super-lg btn-dark mt-5 ms-5 mb-3 opacity-100">REMOVE PRODUCTS</button></a>
-        </div>
-        </div>
+      </div>
         
 
     </div>
