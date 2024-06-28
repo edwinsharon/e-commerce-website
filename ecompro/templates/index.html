@@ -63,6 +63,7 @@
                      {% if user.is_authenticated %}
                      <div class="menu_main">
                         <a href="#"><i class="fa fa-fw fa-user"></i>{{ user.username }}</a>
+                        <a href="{% url 'logoutuser' %}"><button class="btn btn-danger">logout</button></a>
                      </div>
                      {% else %}
                      <div class="menu_main">

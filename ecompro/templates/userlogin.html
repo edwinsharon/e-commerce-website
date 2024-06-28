@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/sellertemplates/style.css' %}">
 </head>
 <body>
+	
     <div class="container" id="container">
 		<div class="form-container signin-container">
 			<form action="#" method="post">
@@ -42,6 +43,7 @@
 					<h1>Hello, there</h1>
 					<p>To join us please enter your personal details</p>
 					<a href="{% url 'usersignup' %}"><button class="over-btn" id="signup">Sign Up</button></a>
+					<a href="{% url 'index' %}"><button class="btn btn-danger mt-5">goback</button></a>
 				</div>
 			</div>
 		</div>

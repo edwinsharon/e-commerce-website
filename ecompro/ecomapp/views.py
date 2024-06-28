@@ -128,11 +128,24 @@ def sellerproducts(request):
         'seller': seller,
         'products': products,
     }
-         return render(request, 'sellerproducts.html', context)
+         return render(request, 'sellerproducts.html',{"products":products})
          
     
 
 def delete_g(request,pk):
     prodobj=product.objects.get(pk=pk)
     prodobj.delete()
-    return redirect(request,"sellerproduct")
+    return redirect("sellerproduct")
+def edit_g(request,pk):
+     if request.method =="POST":
+          title=request.POST.get('title')
+          product.objects.filter(pk=pk).update(title=title)
+          return redirect('index')
+     else:                    
+          todoobj=product.objects.all()
+          data=product.objects.get(pk=pk)
+          return render(request,'index.html',{'data':data,'todos':todoobj})
+
+def logoutuser(request):
+    logout(request)
+    return redirect('index')
