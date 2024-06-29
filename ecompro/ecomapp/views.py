@@ -138,13 +138,13 @@ def delete_g(request,pk):
     return redirect("sellerproduct")
 def edit_g(request,pk):
      if request.method =="POST":
-          title=request.POST.get('title')
-          product.objects.filter(pk=pk).update(title=title)
-          return redirect('index')
-     else:                    
-          todoobj=product.objects.all()
+          prodobj=product.objects.get(pk=pk)
+          prodobj.objects.filter(pk=pk).update()
+          return redirect('sellerproducts')
+     else:            
           data=product.objects.get(pk=pk)
-          return render(request,'index.html',{'data':data,'todos':todoobj})
+          return render(request,'editpro.html',{'data':data})
+          
 
 def logoutuser(request):
     logout(request)
