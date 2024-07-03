@@ -68,6 +68,10 @@ def additem(request):
         seller=request.user
         if not productname or not prize or not offer or not speed or not color or not description or not category or not image:
             messages.error(request,"all fields are required")
+            print(productname,prize,offer,speed,color,description,category)
+            if image is not None:
+                  print("hello")
+        
 
         else:
             probj=product(productname=productname,prize=prize,offer=offer,speed=speed,color=color,description=description,category=category,seller=seller)

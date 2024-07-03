@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/synnefo/Desktop/e-commerce-website/env"
+set -gx VIRTUAL_ENV "/home/administrator/Desktop/e-commerce-website/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

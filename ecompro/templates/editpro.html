@@ -10,7 +10,7 @@
         <a href="{% url 'sellerindex' %}"><button  class="btn btn-danger mb-3 mt-3  me-2" >go back</button></a>
     </div>
     <div class="container  bg-light d-flex justify-content-center w-50 mt-5 rounded" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
-   <form action="" class="pt-2 " method="post">
+   <form action="" class="pt-2 " method="post"  enctype="multipart/form-data">
     {% csrf_token %}
     <div>
         <h1 class="text-secondary">ADD PRODUCT DETAILS</h1>
