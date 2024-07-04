@@ -154,3 +154,19 @@ def edit_g(request,pk):
 def logoutuser(request):
     logout(request)
     return redirect('index')
+
+
+def contact(request):
+    return render(request,'contact.html')
+
+
+def about(request):
+    return render(request,'about.html')
+
+
+def gallery(request):
+    return render(request,'gallery.html')
+
+def testimonial(request):
+    return render(request,"testimonial.html")
+
