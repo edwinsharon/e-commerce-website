@@ -10,7 +10,6 @@ urlpatterns = [
     path('about/',views.about,name="about"),
     path('gallery/',views.gallery,name="gallery"),
     path('testimonial/',views.testimonial,name="testimonial"),
- 
     path('sellerlogin/',views.sellersignup,name="sellersignup"),
     path('seller/',views.sellerlogin,name="sellerlogin"),
     path('sellerindex/',views.sellerindex,name="sellerindex"),
@@ -21,8 +20,7 @@ urlpatterns = [
     path('sellerproducts/',views.sellerproducts,name="sellerproduct"),
     path('logoutuser/',views.logoutuser,name="logoutuser"),
     path('delete_g/<int:pk>',views.delete_g,name="delete_g"),
-    path('edit_g/<int:pk>',views.edit_g,name="edit_g"),
-  
+    path('edit_g/<int:pk>',views.edit_g,name="edit_g"),  
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
